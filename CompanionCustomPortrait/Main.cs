@@ -47,12 +47,12 @@ namespace CompanionCustomPortrait
         {
             GUILayout.BeginHorizontal();
 
-            if (GUILayout.Button("Open Portraits Directory", new GUILayoutOption[] { GUILayout.ExpandWidth(false) }))
+            if (GUILayout.Button("Open Portraits Directory", new GUILayoutOption[] { GUILayout.Width(150f) }))
             {
                 System.Diagnostics.Process.Start(CompanionCustomPortraitsManager.GetPortraitsDirectory());
             }
 
-            if (GUILayout.Button("Reload Portraits", new GUILayoutOption[] { GUILayout.ExpandWidth(false) }))
+            if (GUILayout.Button("Reload Portraits", new GUILayoutOption[] { GUILayout.Width(150f) }))
             {
                 CompanionCustomPortraitsManager.Instance.LoadPortraits();
             }

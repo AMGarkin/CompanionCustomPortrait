@@ -7,5 +7,6 @@
   "Requirements": [],
   "AssemblyName": "CompanionCustomPortrait.dll",
   "EntryMethod": "CompanionCustomPortrait.Main.Load",
-  "HomePage": "https://github.com/Akintos/CompanionCustomPortrait"
+  "HomePage": "https://github.com/Akintos/CompanionCustomPortrait",
+  "Repository": "https://raw.githubusercontent.com/Akintos/CompanionCustomPortrait/master/CompanionCustomPortrait/Repository.json"
 }
