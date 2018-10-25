@@ -1,0 +1,11 @@
+﻿{
+  "Id": "CompanionCustomPortrait",
+  "DisplayName": "Companion Custom Portrait",
+  "Author": "Akintos47",
+  "Version": "1.0.0",
+  "ManagerVersion": "0.12.3",
+  "Requirements": [],
+  "AssemblyName": "CompanionCustomPortrait.dll",
+  "EntryMethod": "CompanionCustomPortrait.Main.Load",
+  "HomePage": "https://github.com/Akintos/CompanionCustomPortrait"
+}
