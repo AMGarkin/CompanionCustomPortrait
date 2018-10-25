@@ -15,6 +15,7 @@ namespace CompanionCustomPortrait
         public static bool Prefix(UnitEntityData __instance, ref PortraitData __result)
         {
             if (!Main.enabled) return true;
+            if (!__instance.Blueprint.LocalizedName) return true;
 
             string guid = __instance.Blueprint.LocalizedName.String.Key;
 
@@ -25,6 +26,7 @@ namespace CompanionCustomPortrait
                 __result = p.Data;
                 return false;
             }
+
             return true;
         }
     }
@@ -35,6 +37,7 @@ namespace CompanionCustomPortrait
         public static bool Prefix(BlueprintUnit __instance, ref BlueprintPortrait __result)
         {
             if (!Main.enabled) return true;
+            if (!__instance.LocalizedName) return true;
 
             string guid = __instance.LocalizedName.String.Key;
 

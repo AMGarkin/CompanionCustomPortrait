@@ -11,4 +11,4 @@ Allows user to change companions portraits easily.
 1. Open the Unity Mod Manager interface (Default is `CTRL+F10`)
 2. Open mod option
 3. Press `Open Portraits Directory` button and put your portrait files (`Small.png`, `Medium.png`, `Fulllength.png`) into folder you want.
-4. Press `Reload Portraits` button to apply changes.
+4. Press `Reload Portraits` button to apply changes. After reload, it takes effect after you enter any location or load a game.

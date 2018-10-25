@@ -24,14 +24,15 @@ namespace CompanionCustomPortrait
             {
                 var harmony = HarmonyInstance.Create(modEntry.Info.Id);
                 harmony.PatchAll(Assembly.GetExecutingAssembly());
+
+                CreateDirectories();
+                CompanionCustomPortraitsManager.Instance.LoadPortraits();
             }
             catch (Exception e)
             {
                 modEntry.Logger.Log(e.ToString());
                 return false;
             }
-
-            CreateDirectories();
 
             return true;
         }
@@ -47,17 +48,17 @@ namespace CompanionCustomPortrait
         {
             GUILayout.BeginHorizontal();
 
-            if (GUILayout.Button("Open Portraits Directory", new GUILayoutOption[] { GUILayout.Width(150f) }))
+            if (GUILayout.Button("Open Portraits Directory", new GUILayoutOption[] { GUILayout.Width(170f) }))
             {
                 System.Diagnostics.Process.Start(CompanionCustomPortraitsManager.GetPortraitsDirectory());
             }
 
-            if (GUILayout.Button("Reload Portraits", new GUILayoutOption[] { GUILayout.Width(150f) }))
+            if (GUILayout.Button("Reload Portraits", new GUILayoutOption[] { GUILayout.Width(130f) }))
             {
                 CompanionCustomPortraitsManager.Instance.LoadPortraits();
             }
 
-            GUILayout.Label(string.Format("Reload may not take effect immediately"), new GUILayoutOption[]{GUILayout.ExpandWidth(false)});
+            GUILayout.Label(string.Format("After reload, it takes effect after you enter any location or load a game."), new GUILayoutOption[]{GUILayout.ExpandWidth(false)});
 
             GUILayout.EndHorizontal();
         }
