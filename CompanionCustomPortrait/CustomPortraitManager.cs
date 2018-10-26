@@ -41,6 +41,7 @@ namespace CompanionCustomPortrait
             { "d67ba497-c2ab-402b-a7d0-8013188a6e1a", "Tristian"},
             { "3adcd3b1-ff5f-4113-a3dd-ed16c28b517b", "Jaethal"},
             { "efc204f4-e317-4403-a8ad-058503370c36", "Linzi"},
+            { "ValeriScar", "Valerie Alternative"},
         };
 
         private static readonly string[] PortraitFileNames = { "Small.png", "Medium.png", "FullLength.png" };

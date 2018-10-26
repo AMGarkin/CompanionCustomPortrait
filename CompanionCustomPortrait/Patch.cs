@@ -3,27 +3,55 @@ using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Persistence;
 using Kingmaker.UI.SaveLoadWindow;
+using Kingmaker.UI.UnitSettings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace CompanionCustomPortrait
 {
-    [HarmonyPatch(typeof(UnitEntityData), "Portrait", MethodType.Getter)]
+    [HarmonyPatch(typeof(UnitUISettings), "PortraitBlueprint", MethodType.Getter)]
+    public static class GetPortraitBlueprint_Patch
+    {
+        public static bool Prefix(UnitUISettings __instance, ref BlueprintPortrait __result)
+        {
+
+            if (!Main.enabled) return true;
+            if (!__instance.Owner.Blueprint.LocalizedName) return true;
+
+            var p = CompanionCustomPortraitsManager.Instance.GetPortrait(__instance.Owner.Blueprint.LocalizedName.String.Key);
+
+            if (p != null)
+            {
+                __result = p;
+                return false;
+            }
+
+            return true;
+        }
+    }
+
+    [HarmonyPatch(typeof(UnitUISettings), "Portrait", MethodType.Getter)]
     public static class GetPortrait_Patch
     {
-        public static bool Prefix(UnitEntityData __instance, ref PortraitData __result)
+        public static bool Prefix(UnitUISettings __instance, ref PortraitData __result, ref BlueprintPortrait ___m_Portrait)
         {
             if (!Main.enabled) return true;
-            if (!__instance.Blueprint.LocalizedName) return true;
+            if (!__instance.Owner.Blueprint.LocalizedName) return true;
 
-            string guid = __instance.Blueprint.LocalizedName.String.Key;
+            BlueprintPortrait p = null;
 
-            var p = CompanionCustomPortraitsManager.Instance.GetPortrait(guid);
+            if (___m_Portrait != null && ___m_Portrait.AssetGuid.Equals("8134f34ef1cc67c498f1ae616995023d"))
+            {
+                p = CompanionCustomPortraitsManager.Instance.GetPortrait("ValeriScar");
+            }
+
+            if (p == null)
+            {
+                p = CompanionCustomPortraitsManager.Instance.GetPortrait(__instance.Owner.Blueprint.LocalizedName.String.Key);
+            }
 
             if (p != null)
             {
@@ -73,7 +101,7 @@ namespace CompanionCustomPortrait
             return true;
         }
     }
-
+    
     [HarmonyPatch(typeof(SaveLoadPortraits), "Set")]
     public static class SaveLoadPortraits_Patch
     {
