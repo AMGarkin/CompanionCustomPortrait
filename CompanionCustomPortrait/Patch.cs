@@ -66,15 +66,24 @@ namespace CompanionCustomPortrait
     [HarmonyPatch(typeof(BlueprintUnit), "PortraitSafe", MethodType.Getter)]
     public static class GetPortraitSafe_Patch
     {
-        public static bool Prefix(BlueprintUnit __instance, ref BlueprintPortrait __result)
+        public static bool Prefix(BlueprintUnit __instance, ref BlueprintPortrait __result, ref BlueprintPortrait ___m_Portrait)
         {
             if (!Main.enabled) return true;
             if (!__instance.LocalizedName) return true;
 
             string guid = __instance.LocalizedName.String.Key;
 
-            var p = CompanionCustomPortraitsManager.Instance.GetPortrait(guid);
+            BlueprintPortrait p = null;
 
+            if (___m_Portrait != null && ___m_Portrait.AssetGuid.Equals("8134f34ef1cc67c498f1ae616995023d"))
+            {
+                p = CompanionCustomPortraitsManager.Instance.GetPortrait("ValeriScar");
+            }
+
+            if (p == null)
+            {
+                p = CompanionCustomPortraitsManager.Instance.GetPortrait(__instance.LocalizedName.String.Key);
+            }
             if (p != null)
             {
                 __result = p;

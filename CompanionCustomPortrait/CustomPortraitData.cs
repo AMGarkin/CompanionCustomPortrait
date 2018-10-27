@@ -13,14 +13,14 @@ namespace CompanionCustomPortrait
         {
             m_CustomPortraitDirectory = path;
 
-            UploadImages(true);
+            UploadImages();
         }
 
-        public new void UploadImages(bool force = false)
+        public void UploadImages()
         {
-            var PortraitImage = UploadSprite(Path.Combine(m_CustomPortraitDirectory, "Small.png"), BlueprintRoot.Instance.CharGen.BasePortraitSmall, force);
-            var HalfLengthImage = UploadSprite(Path.Combine(m_CustomPortraitDirectory, "Medium.png"), BlueprintRoot.Instance.CharGen.BasePortraitMedium, force);
-            var FullLengthImage = UploadSprite(Path.Combine(m_CustomPortraitDirectory, "Fulllength.png"), BlueprintRoot.Instance.CharGen.BasePortraitBig, force);
+            var PortraitImage = UploadSprite(Path.Combine(m_CustomPortraitDirectory, "Small.png"), BlueprintRoot.Instance.CharGen.BasePortraitSmall);
+            var HalfLengthImage = UploadSprite(Path.Combine(m_CustomPortraitDirectory, "Medium.png"), BlueprintRoot.Instance.CharGen.BasePortraitMedium);
+            var FullLengthImage = UploadSprite(Path.Combine(m_CustomPortraitDirectory, "Fulllength.png"), BlueprintRoot.Instance.CharGen.BasePortraitBig);
 
             var baseClass = typeof(CustomPortraitData).BaseType;
 
@@ -29,12 +29,18 @@ namespace CompanionCustomPortrait
             baseClass.GetField("m_FullLengthImage", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(this, FullLengthImage);
         }
 
-        private static Sprite UploadSprite(string file, Sprite baseSprite, bool force = false)
+        private static Sprite UploadSprite(string file, Sprite baseSprite)
         {
             Sprite result;
             try
             {
-                result = CustomPortraitsManager.Instance.LoadPortrait(file, baseSprite, force);
+                byte[] data = File.ReadAllBytes(file);
+                int width = baseSprite.texture.width;
+                int height = baseSprite.texture.height;
+
+                Texture2D texture2D = new Texture2D(width, height);
+                texture2D.LoadImage(data);
+                result = Sprite.Create(texture2D, new Rect(0f, 0f, width, height), new Vector2(0.5f, 0.5f), 100f);
             }
             catch (Exception ex)
             {
