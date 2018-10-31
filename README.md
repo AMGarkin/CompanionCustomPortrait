@@ -3,7 +3,7 @@ Allows user to change companions portraits easily.
 
 ## Install
 1. Download and install [Unity Mod Manager](https://www.nexusmods.com/site/mods/21) or [Kingmaker Mod Loader](https://www.nexusmods.com/pathfinderkingmaker/mods/20)
-2. Download the [mod](https://github.com/Akintos/CompanionCustomPortrait/releases)
+2. Download the [mod](https://github.com/AMGarkin/CompanionCustomPortrait/releases)
 3. Extract the archive and put the mod folder into `Mods` folder of the Game (`[GAME PATH]\Mods`)
 4. Run the game
 
