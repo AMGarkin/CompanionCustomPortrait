@@ -1,12 +1,7 @@
-﻿using Kingmaker;
-using Kingmaker.Blueprints;
+﻿using Kingmaker.Blueprints;
 using Kingmaker.Utility;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace CompanionCustomPortrait
@@ -30,18 +25,32 @@ namespace CompanionCustomPortrait
 
         public static readonly Dictionary<string, string> CompanionGUID = new Dictionary<string, string>
         {
-            { "bfac222a-f891-4b74-844d-25110d9c5e06", "Amiri"},
-            { "53e725f1-219f-4b0b-8ae0-64942623dbf1", "Jubilost"},
-            { "83fd1fd9-e43d-4247-b5de-a8fc10b94008", "Valerie"},
-            { "49d40534-4b4b-4d9c-ba26-91992a66a632", "Octavia"},
-            { "9e0c44f8-7017-49ad-8653-15f9afde7ae1", "Regongar"},
-            { "9f24f778-85a5-4df2-ab35-1a40ceaf59c5", "Ekundayo"},
-            { "cee3db84-6f46-49a8-8a43-677d05b7fc62", "Nok-Nok"},
-            { "ca6226e2-4c69-4441-85ff-37ae71670f99", "Harrim"},
-            { "d67ba497-c2ab-402b-a7d0-8013188a6e1a", "Tristian"},
-            { "3adcd3b1-ff5f-4113-a3dd-ed16c28b517b", "Jaethal"},
-            { "efc204f4-e317-4403-a8ad-058503370c36", "Linzi"},
-            { "ValeriScar", "Valerie Alternative"},
+            //companions
+            { "9608ea376ae7821419b6a7adfe575e3e", "Amiri" },
+            { "f8774a1b6043236418eeae0ed490ee94", "Ekundayo" },
+            { "a87b6eb02054bb5439d3de2ba34f950b", "Harrim" },
+            { "8fe333f837f7b5e4bb0725199b101fdd", "Jaethal" },
+            { "fd639d177de61144d9971536d584b47b", "Jubilost" },
+            { "a46809e5b42212045a29d7e37fc27d94", "Linzi" },
+            { "2fe663d085beff742a83ae87b63fffaa", "Nok-Nok" },
+            { "3d7f4e873564c1746813ed4c465bc87d", "Octavia" },
+            { "6e7302bb773adf04299dbe8832562d50", "Regongar" },
+            { "cfb97eb4f37ff4a468cd64857a6922c2", "Valerie" },
+            { "8134f34ef1cc67c498f1ae616995023d", "Valerie Scar" },
+            { "82e448d871cb4014891a2ccf705e910a", "Tristian" },
+            { "c0230e1fee517664784355441dd5b6e8", "Tristian Blind" },
+            //advisors
+            { "09fb6748fe58dea4fbf3f37c5e4ba8ab", "Bartholomew Delgado" },
+            { "3a664504f1764d040ba3340eb580253e", "Jhod Kavken" },
+            { "4a2c9558226bb8345ac402ab6099df61", "Kassil Aldori" },
+            { "f51ff39fb951c1241944e49ea438ccdd", "Kesten Garess" },
+            { "0a2dfc67a2b91f04c90f5d07364ebc94", "Lander Lebeda" },
+            { "2dd54e7a2506faa4d9b817cf13df0c77", "Maegar Varn" },
+            { "b1ec1e6279f1ff643bb8a5ffc7061675", "Shandra Mervey" },
+            { "ca7e9df2ad3b43843894e3a393a5d08d", "The Storyteller" },
+            { "53378baf75366a940bb5b35e4e465ea5", "Tsanna" },
+            { "eb5a7b5b6e7a5234a935599a3007fd64", "Vordakai" },
+            { "7fcf39f3dc615094990f43db961f615c", "Vordakai Blind" },
         };
 
         private static readonly string[] PortraitFileNames = { "Small.png", "Medium.png", "FullLength.png" };

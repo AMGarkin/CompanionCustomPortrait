@@ -1,6 +1,4 @@
 ﻿using Harmony12;
-using Kingmaker.Blueprints;
-using Kingmaker.EntitySystem.Entities;
 using System;
 using System.IO;
 using System.Reflection;
