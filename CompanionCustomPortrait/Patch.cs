@@ -98,8 +98,6 @@ namespace CompanionCustomPortrait
     {
         public static bool Prefix(SaveLoadPortraits __instance, SaveInfo saveInfo, ref List<SaveLoadPortait> ___m_Portraits)
         {
-            if (!Main.enabled) return true;
-
             try
             {
                 __instance.Reset();
