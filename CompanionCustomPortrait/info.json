@@ -1,12 +1,11 @@
 ﻿{
   "Id": "CompanionCustomPortrait",
   "DisplayName": "Companion Custom Portrait",
-  "Author": "Akintos47",
-  "Version": "1.0.4",
+  "Author": "Akintos47 (modified by Garkin)",
+  "Version": "1.0.5",
   "ManagerVersion": "0.12.0",
-  "Requirements": [],
   "AssemblyName": "CompanionCustomPortrait.dll",
   "EntryMethod": "CompanionCustomPortrait.Main.Load",
-  "HomePage": "https://github.com/Akintos/CompanionCustomPortrait",
-  "Repository": "https://raw.githubusercontent.com/Akintos/CompanionCustomPortrait/master/CompanionCustomPortrait/Repository.json"
+  "HomePage": "https://github.com/AMGarkin/CompanionCustomPortrait",
+  "Repository": "https://raw.githubusercontent.com/AMGarkin/CompanionCustomPortrait/master/CompanionCustomPortrait/Repository.json"
 }
